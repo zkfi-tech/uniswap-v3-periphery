@@ -4,7 +4,7 @@ pragma solidity =0.7.6;
 import '@uniswap/v3-core/contracts/interfaces/callback/IUniswapV3SwapCallback.sol';
 import '@uniswap/v3-core/contracts/libraries/SafeCast.sol';
 import '@uniswap/v3-core/contracts/interfaces/IUniswapV3Pool.sol';
-import '@openzeppelin/v3.4.1/contracts/token/ERC20/IERC20.sol';
+import '@openzeppelin/v3.4.2/contracts/token/ERC20/IERC20.sol';
 
 contract TestUniswapV3Callee is IUniswapV3SwapCallback {
     using SafeCast for uint256;

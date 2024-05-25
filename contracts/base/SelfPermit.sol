@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 pragma solidity >=0.5.0;
 
-import '@openzeppelin/v3.4.1/contracts/token/ERC20/IERC20.sol';
-import '@openzeppelin/v3.4.1/contracts/drafts/IERC20Permit.sol';
+import '@openzeppelin/v3.4.2/contracts/token/ERC20/IERC20.sol';
+import '@openzeppelin/v3.4.2/contracts/drafts/IERC20Permit.sol';
 
 import '../interfaces/ISelfPermit.sol';
 import '../interfaces/external/IERC20PermitAllowed.sol';
