@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity =0.7.6;
+pragma solidity >=0.7.6;
 
 contract MockObservable {
     Observation private observation0;
@@ -25,11 +25,9 @@ contract MockObservable {
         observation1 = Observation(secondsAgos[1], tickCumulatives[1], secondsPerLiquidityCumulativeX128s[1]);
     }
 
-    function observe(uint32[] calldata secondsAgos)
-        external
-        view
-        returns (int56[] memory tickCumulatives, uint160[] memory secondsPerLiquidityCumulativeX128s)
-    {
+    function observe(
+        uint32[] calldata secondsAgos
+    ) external view returns (int56[] memory tickCumulatives, uint160[] memory secondsPerLiquidityCumulativeX128s) {
         require(
             secondsAgos[0] == observation0.secondsAgo && secondsAgos[1] == observation1.secondsAgo,
             'Invalid test case'
