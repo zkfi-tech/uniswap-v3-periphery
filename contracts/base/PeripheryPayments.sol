@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 pragma solidity >=0.7.5;
 
-import '@openzeppelin/contracts/token/ERC20/IERC20.sol';
+import '@openzeppelin/v3.4.1/contracts/token/ERC20/IERC20.sol';
 
 import '../interfaces/IPeripheryPayments.sol';
 import '../interfaces/external/IWETH9.sol';
@@ -27,11 +27,7 @@ abstract contract PeripheryPayments is IPeripheryPayments, PeripheryImmutableSta
     }
 
     /// @inheritdoc IPeripheryPayments
-    function sweepToken(
-        address token,
-        uint256 amountMinimum,
-        address recipient
-    ) public payable override {
+    function sweepToken(address token, uint256 amountMinimum, address recipient) public payable override {
         uint256 balanceToken = IERC20(token).balanceOf(address(this));
         require(balanceToken >= amountMinimum, 'Insufficient token');
 
@@ -49,12 +45,7 @@ abstract contract PeripheryPayments is IPeripheryPayments, PeripheryImmutableSta
     /// @param payer The entity that must pay
     /// @param recipient The entity that will receive payment
     /// @param value The amount to pay
-    function pay(
-        address token,
-        address payer,
-        address recipient,
-        uint256 value
-    ) internal {
+    function pay(address token, address payer, address recipient, uint256 value) internal {
         if (token == WETH9 && address(this).balance >= value) {
             // pay with WETH9
             IWETH9(WETH9).deposit{value: value}(); // wrap only what is needed to pay
